@@ -25,7 +25,7 @@ public class EmployeeServiceImple implements EmployeeService {
     @Autowired
     private RedisTemplate<String, Object> redisTemplate;
 
-    private static final String EMPLOYEE_CACHE_KEY = "EMPLOYEE_CACHE";
+    private static final String EMPLOYEE_CACHE_KEY = "EMPLOYEE";
 
     @Cacheable(value = EMPLOYEE_CACHE_KEY)
     public List<Employee> getAllEmployee() {
@@ -51,20 +51,20 @@ public class EmployeeServiceImple implements EmployeeService {
     }
 
     @Override
-    @CachePut(value = "EMPLOYEE_CACHE", key = "#employee.id")
+    @CachePut(value = "EMPLOYEE", key = "#employee.id")
     public Employee addEmployee(Employee employee) {
         return repository.save(employee);
     }
 
     @Override
-    @Cacheable(value = "EMPLOYEE_CACHE", key = "#id")
+    @Cacheable(value = "EMPLOYEE", key = "#id")
     public Employee getEmployeeById(Long id){
         return repository.findById(id)
                 .orElseThrow(()->new RuntimeException("Employee not found with id: " + id));
     }
 
     @Override
-    @CachePut(value = "EMPLOYEE_CACHE", key = "#id")
+    @CachePut(value = "EMPLOYEE", key = "#id")
     public Employee updateEmployee(Long id, Employee employee) {
         Employee employee1 =  getEmployeeById(id);
         employee1.setName(employee.getName());
@@ -73,7 +73,7 @@ public class EmployeeServiceImple implements EmployeeService {
     }
 
     @Override
-    @CacheEvict(value = "EMPLOYEE_CACHE", key = "#id")
+    @CacheEvict(value = "EMPLOYEE", key = "#id")
     public void deleteEmployee(Long id) {
         repository.deleteById(id);
     }

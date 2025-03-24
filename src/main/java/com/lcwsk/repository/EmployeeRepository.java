@@ -10,6 +10,4 @@ import java.util.List;
 
 @Repository
 public interface EmployeeRepository extends JpaRepository<Employee,Long> {
-//    @Query("select * from employee where salary > 20000")
-//    List<Employee> getAllEmployee();
 }
