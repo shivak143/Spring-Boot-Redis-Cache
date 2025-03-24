@@ -25,23 +25,24 @@ This project demonstrates a Spring Boot CRUD application with Redis caching usin
 2. Run redis server.
 
 3️⃣ Run the Application
+         
 
-📄 application.properties
-# H2 Database Config
-spring.datasource.url=jdbc:h2:mem:testdb
+
+## 📄 application.properties
+### H2 Database Config
+`spring.datasource.url=jdbc:h2:mem:testdb
 spring.datasource.driverClassName=org.h2.Driver
 spring.datasource.username=sa
 spring.datasource.password=
 spring.jpa.database-platform=org.hibernate.dialect.H2Dialect
-spring.h2.console.enabled=true
+spring.h2.console.enabled=true`
 
-# Redis Configuration
+### Redis Configuration
+```
 spring.data.redis.host=localhost
-
 spring.data.redis.port=6379
-
 spring.cache.type=redis
-
+```
 ⚙️ Redis Configuration Details
 
 1️⃣ Add Redis Dependency in pom.xml
