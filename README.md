@@ -26,14 +26,6 @@ This project demonstrates a Spring Boot CRUD application with Redis caching usin
 
 3️⃣ Run the Application
 
-📜 TEST API Endpoints
-* Create User
-* Get User by ID (Cached in Redis)
-* Get All Users
-* Update User
-* Delete User (Removes from Redis & DB)
-
-
 📄 application.properties
 # H2 Database Config
 spring.datasource.url=jdbc:h2:mem:testdb
@@ -81,7 +73,15 @@ public class RedisConfig {
     }
 }
 ```
+️3️⃣ Update Service Layer to Cache Data
 
-🏆 Conclusion
+📜 TEST API Endpoints
+* Create User
+* Get User by ID (Cached in Redis)
+* Get All Users
+* Update User
+* Delete User (Removes from Redis & DB)
+
+🏆 Conclusion : 
 This project demonstrates an efficient way to implement caching with Redis in a Spring Boot application, improving performance and reducing database load.
 
