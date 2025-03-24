@@ -4,33 +4,34 @@ Spring Boot CRUD with Redis Caching
 This project demonstrates a Spring Boot CRUD application with Redis caching using RedisTemplate. It uses H2 in-memory database for persistence and Redis for caching user data.
 
 📌 Features
-✅ CRUD operations for User entity
-✅ Spring Boot + Spring Data JPA
-✅ Redis Caching for performance optimization
-✅ H2 Database for in-memory persistence
-✅ RedisTemplate for cache operations
+* ✅ CRUD operations for User entity
+* ✅ Spring Boot + Spring Data JPA
+* ✅ Redis Caching for performance optimization
+* ✅ H2 Database for in-memory persistence
+* ✅ RedisTemplate for cache operations
 
 🏗️ Tech Stack
-Spring Boot (Web, Data JPA, Redis)
-H2 Database (for persistence)
-Redis (for caching)
-Spring Cache Abstraction
+* Spring Boot (Web, Data JPA, Redis)
+* H2 Database (for persistence)
+* Redis (for caching)
+* Spring Cache Abstraction
 
 ⚙️ Project Setup
+
 1️⃣ Clone Repository
-git clone https://github.com/your-repo-url.git
-cd spring-boot-redis-crud
+
 2️⃣ Run Redis Server
-  1.Install Redis locally.
-  2. Run redis server.
+1. Install Redis locally.
+2. Run redis server.
+
 3️⃣ Run the Application
 
 📜 TEST API Endpoints
-➤ Create User
-➤ Get User by ID (Cached in Redis)
-➤ Get All Users
-➤ Update User
-➤ Delete User (Removes from Redis & DB)
+* Create User
+* Get User by ID (Cached in Redis)
+* Get All Users
+* Update User
+* Delete User (Removes from Redis & DB)
 
 
 📄 application.properties
@@ -53,21 +54,13 @@ spring.cache.type=redis
 
 1️⃣ Add Redis Dependency in pom.xml
 
-<dependency>
-    <groupId>org.springframework.boot</groupId>
-    <artifactId>spring-boot-starter-data-redis</artifactId>
-</dependency>
-
 2️⃣ Configure Redis in Spring Boot (RedisConfig.java)
 
+```
 import org.springframework.context.annotation.Bean;
-
 import org.springframework.context.annotation.Configuration;
-
 import org.springframework.data.redis.connection.lettuce.LettuceConnectionFactory;
-
 import org.springframework.data.redis.core.RedisTemplate;
-
 import org.springframework.data.redis.serializer.StringRedisSerializer;
 
 @Configuration
@@ -87,6 +80,7 @@ public class RedisConfig {
         return template;
     }
 }
+```
 
 🏆 Conclusion
 This project demonstrates an efficient way to implement caching with Redis in a Spring Boot application, improving performance and reducing database load.
