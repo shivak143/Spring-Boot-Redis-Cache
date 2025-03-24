@@ -27,31 +27,13 @@ cd spring-boot-redis-crud
 
 📜 TEST API Endpoints
 ➤ Create User
-POST /users
-  {
-    "name": "John Doe",
-    "email": "john@example.com"
-  }
-
 ➤ Get User by ID (Cached in Redis)
-
-GET /users/{id}
 ➤ Get All Users
-GET /users
 ➤ Update User
-PUT /users/{id}
-  {
-    "name": "John Updated",
-    "email": "john_updated@example.com"
-  }
-
 ➤ Delete User (Removes from Redis & DB)
-
-DELETE /users/{id}
 
 
 📄 application.properties
-
 # H2 Database Config
 spring.datasource.url=jdbc:h2:mem:testdb
 spring.datasource.driverClassName=org.h2.Driver
@@ -62,7 +44,9 @@ spring.h2.console.enabled=true
 
 # Redis Configuration
 spring.data.redis.host=localhost
+
 spring.data.redis.port=6379
+
 spring.cache.type=redis
 
 ⚙️ Redis Configuration Details
